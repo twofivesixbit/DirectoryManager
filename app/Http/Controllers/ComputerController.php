@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Adldap\AdldapInterface;
+use Adldap\Laravel\Facades\Adldap;
 use Illuminate\Http\Request;
 
 class ComputerController extends Controller
 {
-    public function __construct(AdldapInterface $ldap) {
-        $this->ldap = $ldap;
-    }
-
     public function index() {
-        $computers = $this->ldap->search()->computers()->sortBy('cn', 'asc')->get();
+        $computers = Adldap::search()->computers()->sortBy('cn', 'asc')->get();
         return view('computers.index', ['computers' => $computers]);
     }
 

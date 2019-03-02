@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Adldap\AdldapInterface;
+use Adldap\Laravel\Facades\Adldap;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function __construct(AdldapInterface $ldap) {
-        $this->ldap = $ldap;
-    }
-
     public function index() {
-        $users = $this->ldap->search()->users()->sortBy('cn', 'asc')->get();
+        $users = Adldap::search()->users()->sortBy('cn', 'asc')->get();
         return view('users.index', ['users' => $users]);
     }
 
@@ -25,8 +21,8 @@ class UserController extends Controller
     }
 
     public function store(Request $request) {
-        $user = $this->ldap->user()->create($request->all());
-        $group = $this->ldap->group()->find($request->group_id)->addMember($user);
+        $user = Adldap::user()->create($request->all());
+        $group = Adldap::group()->find($request->group_id)->addMember($user);
         return view('users.show', ['user' => $user]);
     }
 

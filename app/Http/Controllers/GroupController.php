@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Adldap\AdldapInterface;
+use Adldap\Laravel\Facades\Adldap;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
-    public function __construct(AdldapInterface $ldap) {
-        $this->ldap = $ldap;
-    }
-
     public function index() {
-        $groups = $this->ldap->search()->groups()->sortBy('cn', 'asc')->get();
+        $groups = Adldap::search()->groups()->sortBy('cn', 'asc')->get();
         return view('groups.index', ['groups' => $groups]);
     }
 
@@ -25,7 +21,7 @@ class GroupController extends Controller
     }
 
     public function store(Request $request) {
-        $group = $this->ldap->group()->create($request->all());
+        $group = Adldap::group()->create($request->all());
         return view('groups.show', ['group' => $group]);
     }
 

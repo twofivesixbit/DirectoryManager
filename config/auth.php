@@ -65,13 +65,13 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
+        // 'users' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\User::class,
+        // ],
 
         'users' => [
-            'driver' => 'adldap',
+            'driver' => 'ldap',
             'model' => App\User::class,
         ],
 
