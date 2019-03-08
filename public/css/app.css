@@ -6529,6 +6529,12 @@ a {
   padding: 1rem;
 }
 
+.form-group-select {
+  border-width: 2px;
+  border-color: #22292f;
+  padding: 1rem;
+}
+
 .form-errors {
   color: #e3342f;
   font-weight: 600;
@@ -6537,12 +6543,6 @@ a {
 .form-button-group {
   display: flex;
   justify-content: center;
-}
-
-.form-button {
-  background-color: #22292f;
-  padding: 1rem;
-  color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -6557,6 +6557,16 @@ a {
   .form-group-input {
     width: 70%;
   }
+
+  .form-group-select {
+    width: 70%;
+  }
+}
+
+.btn {
+  background-color: #22292f;
+  padding: 1rem;
+  color: #fff;
 }
 
 @media (min-width: 576px) {

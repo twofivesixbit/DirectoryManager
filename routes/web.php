@@ -33,15 +33,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/users/create', 'UserController@store')->name('users.store');
     Route::post('/users/{id}/edit', 'UserController@update')->name('users.update');
 
-    Route::delete('/users/{id}/delete', 'UserController@destroy')->name('users.destroy');
+    Route::delete('/users/delete', 'UserController@destroy')->name('users.destroy');
 
     /*
         Groups
     */
+
     Route::get('/groups', 'GroupController@index')->name('groups.index');
-    Route::get('/groups/create', 'GroupController@create')->name('users.create');
-    Route::get('/groups/{id}', 'GroupController@show')->name('users.show');
-    Route::get('/groups/{id}/edit', 'GroupController@edit')->name('users.edit');
+    Route::get('/groups/create', 'GroupController@create')->name('groups.create');
+    Route::get('/groups/{id}', 'GroupController@show')->name('groups.show');
+    Route::get('/groups/{id}/edit', 'GroupController@edit')->name('groups.edit');
 
     /*
         Computers
@@ -56,5 +57,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/computers/{id}/edit', 'ComputerController@update')->name('computers.update');
 
     Route::delete('/computers/{id}/delete', 'ComputerController@destroy')->name('computers.destroy');
+
+    /*
+        Units
+    */
+
+    Route::get('/units', 'UnitController@index')->name('units.index');
+    Route::get('/units/create', 'UnitController@create')->name('units.create');
+
+    Route::post('/units/create', 'UnitController@store')->name('units.store');
+
+    Route::delete('/units/{id}/delete', 'UnitController@destroy')->name('units.destroy');
 
 });

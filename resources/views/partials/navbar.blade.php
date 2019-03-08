@@ -18,6 +18,9 @@
 			<a class="text-white no-underline m-2" href="{{ route('users.index') }}">
 				Users
 			</a>
+			<a class="text-white no-underline m-2" href="{{ route('units.index') }}">
+				Units
+			</a>
 			<a class="text-white no-underline m-2" href="#" @click="submitLogoutForm()">
 				Logoff
 			</a>

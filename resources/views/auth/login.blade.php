@@ -29,7 +29,7 @@
     @endif
 
     <div class="form-button-group">
-        <button class="form-button" type="submit">
+        <button class="btn" type="submit">
             Login
         </button>
     </div>

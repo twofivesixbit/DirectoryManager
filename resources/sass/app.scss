@@ -56,16 +56,16 @@ a {
 	@apply .border-2 .border-black .p-4;
 }
 
+.form-group-select {
+	@apply .border-2 .border-black .p-4;
+}
+
 .form-errors {
 	@apply .text-red .font-semibold;
 }
 
 .form-button-group {
 	@apply .flex .justify-center;
-}
-
-.form-button {
-	@apply .bg-black .p-4 .text-white;
 }
 
 @screen md {
@@ -80,4 +80,14 @@ a {
 	.form-group-input {
 		@apply .w-7/10;
 	}
+
+	.form-group-select {
+		@apply .w-7/10;
+	}
+}
+
+// Buttons
+
+.btn {
+	@apply .bg-black .p-4 .text-white;
 }
