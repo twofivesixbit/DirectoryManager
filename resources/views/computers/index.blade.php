@@ -10,6 +10,7 @@
         <th scope="col">Operating System</th>
         <th scope="col">Description</th>
         <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
 </thead>
 <tbody>
@@ -20,6 +21,15 @@
         <td>{{ $computer->getDescription() }}</td>
         <td>
             <a class="btn" href="rdp://{{ $computer->getDnsHostName() }}">Remote</a>
+        </td>
+        <td>
+            <form method="post" action="{{ route('computers.destroy') }}?computer={{ $computer->getDnsHostName() }}">
+                @csrf
+                <input type="hidden" name="_method" value="delete" />
+                <button class="btn bg-red" type="submit">
+                    Delete
+                </button>
+            </form>
         </td>
     </tr> 
     @endforeach

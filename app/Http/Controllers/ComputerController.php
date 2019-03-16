@@ -32,7 +32,10 @@ class ComputerController extends Controller
         //
     }
 
-    public function destroy() {
-        //
+    public function destroy(Request $request) {
+        $computer = Adldap::search()->where('dnsHostName', $request->input('computer'))->firstOrFail();
+        $computer->delete();
+
+        return redirect('/computers');
     }
 }

@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/computers/create', 'ComputerController@store')->name('computers.store');
     Route::post('/computers/{id}/edit', 'ComputerController@update')->name('computers.update');
 
-    Route::delete('/computers/{id}/delete', 'ComputerController@destroy')->name('computers.destroy');
+    Route::delete('/computers/delete', 'ComputerController@destroy')->name('computers.destroy');
 
     /*
         Units
